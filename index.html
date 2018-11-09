@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Game - Web 1</title>
+<style>
+	@font-face {
+		font-family: invasion200;
+		src: url('fonts/invasion200.ttf');
+	}
+	body {
+		margin: 0;
+		background-color: rgb(30,30,30);
+	}
+	canvas {
+		position: absolute;
+		left: 50%;
+		top: 0;
+		transform: translateX(-50%);
+	}
+	button {
+		position: absolute;
+		right: 200px;
+		background: transparent;
+		border: 0;
+		z-index: 101;
+	}
+
+	#play {
+		top: 200px;
+	}
+
+	#pause {
+		top: 275px;
+	}
+	#reset {
+		top: 350px;
+	}
+
+	button:hover img {
+		box-shadow: 0 0 15px 3px rgba(255,255,255,.4);
+	}
+	img {
+		border-radius: 15px;
+		width: 50px;
+		transition: ease .5s all;
+	}
+	.background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url(imgs/background.png);
+		background-size: contain;
+		background-position: center center;
+		background-repeat: no-repeat;
+		z-index: 100;
+	}
+</style>
+</head>
+
+<body>
+	<canvas id="juego"></canvas>
+	<button id="play" onclick="Game.instance.resume()"><img src="imgs/buttons/play.png"></button>
+	<button id="pause" onclick="Game.instance.setPausa()"><img src="imgs/buttons/pause.png"></button>
+	<button id="reset" onclick="Game.instance.reset()"><img src="imgs/buttons/reset.png"></button>
+	<div style="display:none;">
+		<audio src="audio/count_down.mp3" type="audio/mpeg"	id="count_down"></audio>
+		<audio src="audio/game_over.mp3" type="audio/mpeg" id="game_over"></audio>
+		<audio src="audio/game_play.mp3" type="audio/mpeg" id="game_play"></audio>
+		<audio src="audio/rebote.mp3" 	type="audio/mpeg" id="rebote"></audio>
+		<audio src="audio/Livelost.mp3" type="audio/mpeg" id="livelost"></audio>
+		<audio src="audio/Levelup.mp3" 	type="audio/mpeg" id="levelup"></audio>
+	</div>
+	<script src="game.js"></script>
+	<div class="background"></div>
+</body>
+</html>
